@@ -432,13 +432,51 @@ def distribution_choice():
             "13 - Cauchy\n",
             "14 - Normal\n"
             )
+    # Retrieving the distribution number from user until we have a correct number
     distribution_number = int(input("Please kindly enter the number of the distribution"))
-    while distribution_number<1 or distribution_number>16 :
-        distribution_number = int(input("Please enter a correct number from the list above:"))
-
+    while distribution_number not in range(1,15):
+        distribution_number = int(input("Please enter an interger number from the list above (ex: 14):"))
+    
+    return distribution_call()
 
 
 # Calling the functions
+def distribution_call():
+    #double checking that the number is an integer and in-between 
+    assert type(distribution_number) is int and distribution_number>0 and distribution_number<16
+    #Launching the distribution based on the number
+    if distribution_number = 1:
+        return bernoulli()
+    elif distribution_number = 2:
+        return binomial()
+    elif distribution_number = 3:
+        return binomial()
+    elif distribution_number = 4:
+        return binomial()
+    elif distribution_number = 5:
+        return binomial()
+    elif distribution_number = 6:
+        return binomial()
+    elif distribution_number = 7:
+        return binomial()
+    elif distribution_number = 8:
+        return binomial()
+    elif distribution_number = 9:
+        return binomial()
+    elif distribution_number = 10:
+        return binomial()
+    elif distribution_number = 11:
+        return binomial()
+    elif distribution_number = 12:
+        return binomial()
+    elif distribution_number = 13:
+        return binomial()
+    elif distribution_number = 14:
+        return binomial()
+    else:
+        return distribution_choice()
+
+
 bernoulli()
 binomial()
 geometric()
