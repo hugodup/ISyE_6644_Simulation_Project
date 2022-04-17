@@ -28,6 +28,9 @@ sns.set(rc={'figure.figsize':(5,5)})
 
 ## Bernoulli
 def bernoulli():
+    #Message
+    print("Bernoulli distribution")
+    
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
@@ -55,6 +58,10 @@ def bernoulli():
 
 ## Binomial
 def binomial():
+    #Message
+    print("Binomial distribution")
+    
+    
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
@@ -82,6 +89,10 @@ def binomial():
 
 ## Geometric
 def geometric():
+    #Message
+    print("Geometric distribution")
+    
+    
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
@@ -109,6 +120,10 @@ def geometric():
 
 ## Negative Binomial
 def negative_binomial():
+    #Message
+    print("Negative Binomial distribution")
+    
+    
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
@@ -136,6 +151,10 @@ def negative_binomial():
 
 ## Poisson
 def poisson():
+    #Message
+    print("Poisson distribution")
+    
+    
     #Inputs
     mu = float(input("Enter the mu-value: "))
     n = int(input("Enter your sample size: "))
@@ -170,6 +189,10 @@ def poisson():
 
 ## Uniform
 def uniform():
+    #Message
+    print("Uniform distribution")
+    
+    
     #Inputs
     start = float(input("Enter your starting value a: "))
     width = float(input("Enter the width of the data b: "))
@@ -200,6 +223,10 @@ def uniform():
 
 ## Exponential
 def exponential():
+    #Message
+    print("Exponential distribution")
+    
+    
     #Inputs
     start = float(input("Enter your starting value a: "))
     width = float(input("Enter the width of the data b: "))
@@ -230,6 +257,10 @@ def exponential():
 
 ## Erlang
 def erlang():
+    #Message
+    print("Erlang distribution")
+    
+    
     #Inputs
     a = float(input("Enter your lambda value: "))
     n = int(input("Enter your integer sample size: "))
@@ -258,6 +289,10 @@ def erlang():
 
 ## Gamma
 def gamma():
+    #Message
+    print("Gamma distribution")
+    
+    
     #Inputs
     a = float(input("Enter your lambda value: "))
     n = int(input("Enter your integer sample size: "))
@@ -286,6 +321,10 @@ def gamma():
 
 ## Triangular
 def triangular():
+    #Message
+    print("Triangular distribution")
+    
+    
     #Inputs
     a = float(input("Enter your starting value: "))
     b = float(input("Enter the mean value between 0 and 1: "))
@@ -316,6 +355,10 @@ def triangular():
 
 ## Beta
 def beta():
+    #Message
+    print("Beta distribution")
+    
+    
     #Inputs
     a = float(input("Enter your starting value: "))
     b = float(input("Enter your ending value: "))
@@ -345,6 +388,10 @@ def beta():
 
 ## Weibull
 def weibull():
+    #Message
+    print("Weibull distribution")
+    
+    
     #Inputs
     a = float(input("Enter your scale parameter: "))
     b = float(input("Enter the shape parameter: "))
@@ -381,6 +428,10 @@ def weibull():
 
 ## Cauchy
 def cauchy():
+    #Message
+    print("Cauchy distribution")
+    
+    
     #Inputs
     n = int(input("Enter your integer sample size: "))
 
@@ -408,6 +459,10 @@ def cauchy():
 
 ## Normal
 def normal():
+    #Message
+    print("Normal distribution")
+    
+    
     #Inputs
     a = float(input("Enter beginning interval a: "))
     b = float(input("Enter ending interval b: "))
@@ -438,7 +493,7 @@ def normal():
 
 ##############################################################################
 
-# Welcome message
+# Welcome message to start the program
 def welcome():
     print("Welcome to the Random Variate Distribution Generator\n")
     return distribution_choice()
@@ -463,16 +518,17 @@ def distribution_choice():
             )
     # Retrieving the distribution number from user until we have a correct number
     distribution_number = int(input("Please kindly enter the number of the distribution: "))
-    while distribution_number not in range(1,14):
+    while distribution_number not in range(1,15):
         distribution_number = int(input("Please enter an interger number from the list above (ex: 14): "))
     
-    return distribution_call()
+    return distribution_call(distribution_number)
 
 
 # Calling the functions
-def distribution_call():
+def distribution_call(distribution_number):
     #double checking that the number is an integer and in-between 
-    assert type(distribution_number) is int and distribution_number in range(1,14)
+    assert isinstance(distribution_number, int) 
+    assert distribution_number in range(1,15)
     
     #Launching the distribution based on the number
     if distribution_number == 1:
@@ -509,12 +565,11 @@ def distribution_call():
 def distribution_end():
     # Asking to continue or not
     answer = int(input("Do you want to continue with a new distribution or not ?\n Enter 1 for Yes and 0 for No: "))
-    while answer not in range(0,1):
-        answer = int(input("Please double check your choice\n Enter 1 or 0 "))
+    while answer not in range(0,2):
+        answer = int(input("Please double check your choice\n Enter 1 or 0: "))
     # Asnwer choice
-    if answer=1:
-        return distribution_choice()
-    else: return print("Thank you for trying our Library. Bye-bye!")
+    if answer == 1: return distribution_choice()
+    elif answer == 0: return print("Thank you for trying our Library of distributions. Bye-bye!")
 
 
 ##############################################################################
