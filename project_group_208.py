@@ -9,6 +9,8 @@ Created on Thu Mar 10 10:04:18 2022
 
 # for inline plots in jupyter
 #%matplotlib inline
+#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 # import scipy
 import scipy as scipy
 # import seaborn
@@ -58,10 +60,11 @@ def bernoulli():
                      kde=False,
                      color="purple")
     graph.set(xlabel='Bernoulli Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = bernoulli.stats(p, moments='mvsk')
     print("Bernoulli distribution: mean=",mean," and the var=",var)
-
+bernoulli()
 
 
 ## Binomial
@@ -76,7 +79,8 @@ def binomial():
                       kde=False,
                       color='purple')
     graph.set(xlabel='Binomial Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = binom.stats(n, p, moments='mvsk')
     print("Binomial distribution: mean=",mean," and the var=",var)
 
@@ -94,7 +98,8 @@ def geometric():
                       kde=False,
                       color='purple')
     graph.set(xlabel='Geometric', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = geom.stats(p, moments='mvsk')
     print("Geometric distribution: mean=",mean," and the var=",var)
 
@@ -112,7 +117,8 @@ def negative_binomial():
                       kde=False,
                       color='purple')
     graph.set(xlabel='Negative Binomial', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = nbinom.stats(n, p, moments='mvsk')
     print("Negative Binomial distribution: mean=",mean," and the var=",var)
 
@@ -131,7 +137,8 @@ def poisson():
                       kde=False,
                       color='purple')
     graph.set(xlabel='Poisson Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = poisson.stats(mu, moments='mvsk')
     print("Poisson distribution: mean=",mean," and the var=",var)
 
@@ -157,7 +164,8 @@ def uniform():
                       kde=True,
                       color='purple')
     graph.set(xlabel='Uniform Distribution ', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = uniform.stats(moments='mvsk')
     print("Uniform distribution: mean=",mean," and the var=",var)
 
@@ -178,7 +186,8 @@ def exponential():
                       bins='auto',
                       color='purple')
     graph.set(xlabel='Exponential Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = expon.stats(moments='mvsk')
     print("Exponential distribution: mean=",mean," and the var=",var)
 
@@ -198,7 +207,8 @@ def erlang():
                       bins='auto',
                       color='purple')
     graph.set(xlabel='Erlang Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = erlang.stats(a, moments='mvsk')
     print("Erlang distribution: mean=",mean," and the var=",var)
 
@@ -217,7 +227,8 @@ def Gamma():
                       bins='auto',
                       color='purple')
     graph.set(xlabel='Gamma Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = gamma.stats(a, moments='mvsk')
     print("Gamma distribution: mean=",mean," and the var=",var)
 
@@ -239,7 +250,8 @@ def triangular():
                       bins='auto',
                       color='purple')
     graph.set(xlabel='Triangular Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = triang.stats(c, moments='mvsk')
     print("Triangular distribution: mean=",mean," and the var=",var)
 
@@ -259,7 +271,8 @@ def beta():
                       bins='auto',
                       color='purple')
     graph.set(xlabel='Beta(a,b)', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = beta.stats(a, b, moments='mvsk')
     print("Beta distribution: mean=",mean," and the var=",var)
 
@@ -286,7 +299,8 @@ def weibull():
                       bins='auto',
                       color='purple')
     graph.set(xlabel='Weibull Distribution', ylabel='Frequency')
-    
+    plt.show()
+
     mean, var, skew, kurt = exponweib.stats(a, c, moments='mvsk')
     print("Weibull distribution: mean=",mean," and the var=",var)
     warnings.filterwarnings("default")
@@ -302,6 +316,7 @@ graph = sns.displot(data_cauchy,
                   kde=True,
                   color='purple')
 graph.set(xlabel='Cauchy Distribution', ylabel='Frequency')
+plt.show()
 
 mean, var, skew, kurt = cauchy.stats(moments='mvsk')
 print("Cauchy distribution: mean=",mean," and the var=",var)
@@ -318,6 +333,7 @@ graph = sns.displot(data_normal,
                   kde=True,
                   color='purple')
 graph.set(xlabel='Normal Distribution', ylabel='Frequency')
+plt.show()
 
 mean, var, skew, kurt = norm.stats(moments='mvsk')
 print("Normal distribution: mean=",mean," and the var=",var)
