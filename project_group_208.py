@@ -49,6 +49,8 @@ def bernoulli():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 ## Binomial
@@ -73,6 +75,8 @@ def binomial():
 
     #Show the graph
     plt.show()
+
+    return distribution_end()
 
 
 
@@ -99,6 +103,8 @@ def geometric():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 ## Negative Binomial
@@ -123,6 +129,8 @@ def negative_binomial():
 
     #Show the graph
     plt.show()
+
+    return distribution_end()
 
 
 
@@ -149,6 +157,8 @@ def poisson():
 
     #Show the graph
     plt.show()
+
+    return distribution_end()
 
 
 
@@ -183,6 +193,8 @@ def uniform():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 
@@ -211,6 +223,8 @@ def exponential():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 
@@ -238,6 +252,8 @@ def erlang():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 ## Gamma
@@ -263,6 +279,8 @@ def gamma():
 
     #Show the graph
     plt.show()
+
+    return distribution_end()
 
 
 
@@ -292,6 +310,8 @@ def triangular():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 ## Beta
@@ -318,6 +338,8 @@ def beta():
 
     #Show the graph
     plt.show()
+
+    return distribution_end()
 
 
 
@@ -353,6 +375,8 @@ def weibull():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 ## Cauchy
@@ -378,6 +402,8 @@ def cauchy():
     #mean, var, skew, kurt = cauchy.stats(moments='mvsk')
     #print("Cauchy distribution: mean=",mean," and the var=",var, skew, kurt)
     #we found out that the distribution can not generate a mean and variation
+
+    return distribution_end()
 
 
 ## Normal
@@ -406,6 +432,8 @@ def normal():
     #Show the graph
     plt.show()
 
+    return distribution_end()
+
 
 
 ##############################################################################
@@ -413,6 +441,7 @@ def normal():
 # Welcome message
 def welcome():
     print("Welcome to the Random Variate Distribution Generator\n")
+    return distribution_choice()
 
 # Asking the user to choose the distribution
 def distribution_choice():
@@ -433,9 +462,9 @@ def distribution_choice():
             "14 - Normal\n"
             )
     # Retrieving the distribution number from user until we have a correct number
-    distribution_number = int(input("Please kindly enter the number of the distribution"))
-    while distribution_number not in range(1,15):
-        distribution_number = int(input("Please enter an interger number from the list above (ex: 14):"))
+    distribution_number = int(input("Please kindly enter the number of the distribution: "))
+    while distribution_number not in range(1,14):
+        distribution_number = int(input("Please enter an interger number from the list above (ex: 14): "))
     
     return distribution_call()
 
@@ -443,53 +472,52 @@ def distribution_choice():
 # Calling the functions
 def distribution_call():
     #double checking that the number is an integer and in-between 
-    assert type(distribution_number) is int and distribution_number>0 and distribution_number<16
+    assert type(distribution_number) is int and distribution_number in range(1,14)
+    
     #Launching the distribution based on the number
     if distribution_number = 1:
         return bernoulli()
     elif distribution_number = 2:
         return binomial()
     elif distribution_number = 3:
-        return binomial()
+        return geometric()
     elif distribution_number = 4:
-        return binomial()
+        return negative_binomial()
     elif distribution_number = 5:
-        return binomial()
+        return poisson()
     elif distribution_number = 6:
-        return binomial()
+        return uniform()
     elif distribution_number = 7:
-        return binomial()
+        return exponential()
     elif distribution_number = 8:
-        return binomial()
+        return erlang()
     elif distribution_number = 9:
-        return binomial()
+        return gamma()
     elif distribution_number = 10:
-        return binomial()
+        return triangular()
     elif distribution_number = 11:
-        return binomial()
+        return beta()
     elif distribution_number = 12:
-        return binomial()
+        return weibull()
     elif distribution_number = 13:
-        return binomial()
+        return cauchy()
     elif distribution_number = 14:
-        return binomial()
+        return normal()
     else:
         return distribution_choice()
 
+def distribution_end():
+    # Asking to continue or not
+    answer = int(input("Do you want to continue with a new distribution or not ?\n Enter 1 for Yes and 0 for No: "))
+    while answer not in range(0,1):
+        answer = int(input("Please double check your choice\n Enter 1 or 0 "))
+    # Asnwer choice
+    if answer=1:
+        return distribution_choice()
+    else: return print("Thank you for trying our Library. Bye-bye!")
 
-bernoulli()
-binomial()
-geometric()
-negative_binomial()
-poisson()
 
-uniform()
-exponential()
-erlang()
-gamma()
+##############################################################################
 
-triangular()
-beta()
-weibull()
-cauchy()
-normal()
+# Start of the program
+welcome()
