@@ -475,33 +475,33 @@ def distribution_call():
     assert type(distribution_number) is int and distribution_number in range(1,14)
     
     #Launching the distribution based on the number
-    if distribution_number = 1:
+    if distribution_number == 1:
         return bernoulli()
-    elif distribution_number = 2:
+    elif distribution_number == 2:
         return binomial()
-    elif distribution_number = 3:
+    elif distribution_number == 3:
         return geometric()
-    elif distribution_number = 4:
+    elif distribution_number == 4:
         return negative_binomial()
-    elif distribution_number = 5:
+    elif distribution_number == 5:
         return poisson()
-    elif distribution_number = 6:
+    elif distribution_number == 6:
         return uniform()
-    elif distribution_number = 7:
+    elif distribution_number == 7:
         return exponential()
-    elif distribution_number = 8:
+    elif distribution_number == 8:
         return erlang()
-    elif distribution_number = 9:
+    elif distribution_number == 9:
         return gamma()
-    elif distribution_number = 10:
+    elif distribution_number == 10:
         return triangular()
-    elif distribution_number = 11:
+    elif distribution_number == 11:
         return beta()
-    elif distribution_number = 12:
+    elif distribution_number == 12:
         return weibull()
-    elif distribution_number = 13:
+    elif distribution_number == 13:
         return cauchy()
-    elif distribution_number = 14:
+    elif distribution_number == 14:
         return normal()
     else:
         return distribution_choice()
