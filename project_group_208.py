@@ -8,8 +8,6 @@ Created on Thu Mar 10 10:04:18 2022
 
 # Librairies to import
 
-# for inline plots in jupyter
-#%matplotlib inline
 #import matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 # import scipy
@@ -29,155 +27,90 @@ sns.set(rc={'figure.figsize':(5,5)})
 ## Bernoulli
 def bernoulli():
     #Message
-    print("Bernoulli distribution")
+    x="Bernoulli distribution"
+    print(x)
     
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
     
     #Generating RV
-    from scipy.stats import bernoulli
-    data_bern = bernoulli.rvs(p=p, size=n)
+    from scipy.stats import bernoulli as y
+    data = y.rvs(p=p, size=n)
     
-    #Graph
-    graph= sns.displot(data_bern,
-                     kde=False,
-                     color="purple")
-    graph.set(xlabel='Bernoulli Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = bernoulli.stats(p, moments='mvsk')
-    print("Bernoulli distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,p), graph_generator(data,x), distribution_end()
 
 
 
 ## Binomial
 def binomial():
     #Message
-    print("Binomial distribution")
-    
+    x="Binomial distribution"
+    print(x)
     
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
     
     #Generating RV
-    from scipy.stats import binom
-    data_binom = binom.rvs(n=n, p=p, size=n)
-    
-    #Graph
-    graph = sns.displot(data_binom,
-                      kde=False,
-                      color='purple')
-    graph.set(xlabel='Binomial Distribution', ylabel='Frequency')
+    from scipy.stats import binom as y
+    data = y.rvs(n=n, p=p, size=n)
 
-    #Statistics
-    mean, var, skew, kurt = binom.stats(n, p, moments='mvsk')
-    print("Binomial distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,n,p), graph_generator(data,x), distribution_end()
 
 
 
 ## Geometric
 def geometric():
     #Message
-    print("Geometric distribution")
-    
+    x="Geometric distribution"
+    print(x)
     
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
     
     #Generating RV
-    from scipy.stats import geom
-    data_geom = geom.rvs(p, size=n)
-    
-    #Graph
-    graph = sns.displot(data_geom,
-                      kde=False,
-                      color='purple')
-    graph.set(xlabel='Geometric', ylabel='Frequency')
+    from scipy.stats import geom as y
+    data = y.rvs(p=p, size=n)
 
-    #Statistics
-    mean, var, skew, kurt = geom.stats(p, moments='mvsk')
-    print("Geometric distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,p), graph_generator(data,x), distribution_end()
 
 
 
 ## Negative Binomial
 def negative_binomial():
     #Message
-    print("Negative Binomial distribution")
-    
+    x="Negative Binomial distribution"
+    print(x)
     
     #Inputs
     p = float(input("Enter your probability (between 0 and 1): "))
     n = int(input("Enter your sample size: "))
 
     #Generating RV    
-    from scipy.stats import nbinom
-    data_nbinom = nbinom.rvs(n=n, p=p, size=n)
-    
-    #Graph
-    graph = sns.displot(data_nbinom,
-                      kde=False,
-                      color='purple')
-    graph.set(xlabel='Negative Binomial', ylabel='Frequency')
+    from scipy.stats import nbinom as y
+    data = y.rvs(n=n, p=p, size=n)
 
-    #Statistics
-    mean, var, skew, kurt = nbinom.stats(n, p, moments='mvsk')
-    print("Negative Binomial distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,n,p), graph_generator(data,x), distribution_end()
 
 
 
 ## Poisson
 def poisson():
     #Message
-    print("Poisson distribution")
-    
+    x="Poisson distribution"
+    print(x)
     
     #Inputs
-    mu = float(input("Enter the mu-value: "))
+    c = float(input("Enter the mu-value: "))
     n = int(input("Enter your sample size: "))
     
     #Generating RV
-    from scipy.stats import poisson
-    data_poisson = poisson.rvs(mu=mu, size=n)
+    from scipy.stats import poisson as y
+    data = y.rvs(mu=c, size=n)
     
-    #Graph
-    graph = sns.displot(data_poisson,
-                      bins='auto',
-                      kde=False,
-                      color='purple')
-    graph.set(xlabel='Poisson Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = poisson.stats(mu, moments='mvsk')
-    print("Poisson distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,c), graph_generator(data,x), distribution_end()
 
 
 
@@ -190,8 +123,8 @@ def poisson():
 ## Uniform
 def uniform():
     #Message
-    print("Uniform distribution")
-    
+    x="Uniform distribution"
+    print(x)
     
     #Inputs
     start = float(input("Enter your starting value a: "))
@@ -199,165 +132,93 @@ def uniform():
     n = int(input("Enter your integer sample size in the interval (a,b): "))
 
     #Generating RV
-    from scipy.stats import uniform
-    data_uniform = uniform.rvs(loc=start, scale=width, size=n)
+    from scipy.stats import uniform as y
+    data = y.rvs(loc=start, scale=width, size=n)
     
-    #Graph
-    graph = sns.displot(data_uniform,
-                      bins='auto',
-                      kde=True,
-                      color='purple')
-    graph.set(xlabel='Uniform Distribution ', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = uniform.stats(moments='mvsk')
-    print("Uniform distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
-
+    return statistics(y,x), graph_generator(data,x), distribution_end()
 
 
 
 ## Exponential
 def exponential():
     #Message
-    print("Exponential distribution")
-    
+    x="Exponential distribution"
+    print(x)
     
     #Inputs
-    start = float(input("Enter your starting value a: "))
-    width = float(input("Enter the width of the data b: "))
-    n = int(input("Enter your integer sample size in the interval (a,b): "))
+    a = float(input("Enter your starting value a: "))
+    b = float(input("Enter the width of the data b: "))
+    n = int(input("Enter your integer sample size: "))
     
     #Generating RV
-    from scipy.stats import expon
-    data_expon = expon.rvs(loc=start, scale=width, size=n)
-    
-    #Graph
-    graph = sns.displot(data_expon,
-                      kde=True,
-                      bins='auto',
-                      color='purple')
-    graph.set(xlabel='Exponential Distribution', ylabel='Frequency')
+    from scipy.stats import expon as y
+    data = y.rvs(loc=a, scale=b, size=n)
 
-    #Statistics
-    mean, var, skew, kurt = expon.stats(moments='mvsk')
-    print("Exponential distribution: mean=",mean,"and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
-
+    return statistics(y,x), graph_generator(data,x), distribution_end()
 
 
 
 ## Erlang
 def erlang():
     #Message
-    print("Erlang distribution")
-    
+    x="Erlang distribution"
+    print(x)
     
     #Inputs
-    a = float(input("Enter your lambda value: "))
+    c = float(input("Enter your lambda value: "))
     n = int(input("Enter your integer sample size: "))
     
     #Generating RV
-    from scipy.stats import erlang
-    data_erlang = erlang.rvs(a=a, size=n)
+    from scipy.stats import erlang as y
+    data = y.rvs(c, size=n)
     
-    #Graph
-    graph = sns.displot(data_erlang,
-                      kde=True,
-                      bins='auto',
-                      color='purple')
-    graph.set(xlabel='Erlang Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = erlang.stats(a, moments='mvsk')
-    print("Erlang distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,c), graph_generator(data,x), distribution_end()
 
 
 
 ## Gamma
 def gamma():
     #Message
-    print("Gamma distribution")
-    
+    x="Gamma distribution"
+    print(x)
     
     #Inputs
     a = float(input("Enter your lambda value: "))
     n = int(input("Enter your integer sample size: "))
     
     #Generating RV
-    from scipy.stats import gamma
-    data_gamma = gamma.rvs(a, size=n)
+    from scipy.stats import gamma as y
+    data = y.rvs(a=a, size=n)
     
-    #Graph
-    graph = sns.displot(data_gamma,
-                      kde=True,
-                      bins='auto',
-                      color='purple')
-    graph.set(xlabel='Gamma Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = gamma.stats(a, moments='mvsk')
-    print("Gamma distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,a), graph_generator(data,x), distribution_end()
 
 
 
 ## Triangular
 def triangular():
     #Message
-    print("Triangular distribution")
-    
+    x="Triangular distribution"
+    print(x)
     
     #Inputs
     a = float(input("Enter your starting value: "))
-    b = float(input("Enter the mean value between 0 and 1: "))
-    c = float(input("Enter your highest value: "))
+    c = float(input("Enter the mean value between 0 and 1: "))
+    b = float(input("Enter your highest value: "))
     n = int(input("Enter your integer sample size: "))
     
     #Generating RV
-    from scipy.stats import triang
-    data_triang = triang.rvs(loc=a, c=b, scale=c, size=n)
+    from scipy.stats import triang as y
+    data = y.rvs(loc=a, c=c, scale=b, size=n)
     
-    #Graph
-    graph = sns.displot(data_triang,
-                      kde=True,
-                      bins='auto',
-                      color='purple')
-    graph.set(xlabel='Triangular Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = triang.stats(c, moments='mvsk')
-    print("Triangular distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,c), graph_generator(data,x), distribution_end()
 
 
 
 ## Beta
 def beta():
     #Message
-    print("Beta distribution")
-    
+    x="Beta distribution"
+    print(x)
     
     #Inputs
     a = float(input("Enter your starting value: "))
@@ -365,32 +226,18 @@ def beta():
     n = int(input("Enter your integer sample size: "))
     
     #Generating RV
-    from scipy.stats import beta
-    data_beta = beta.rvs(a=a, b=b, size=n)
+    from scipy.stats import beta as y
+    data = y.rvs(a=a, b=b, size=n)
     
-    #Graph
-    graph = sns.displot(data_beta,
-                      kde=False,
-                      bins='auto',
-                      color='purple')
-    graph.set(xlabel='Beta(a,b)', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = beta.stats(a, b, moments='mvsk')
-    print("Beta distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,a,b), graph_generator(data,x), distribution_end()
 
 
 
 ## Weibull
 def weibull():
     #Message
-    print("Weibull distribution")
-    
+    x="Weibull distribution"
+    print(x)
     
     #Inputs
     a = float(input("Enter your scale parameter: "))
@@ -402,66 +249,42 @@ def weibull():
     warnings.filterwarnings("ignore")
     
     #Generating RV
-    from scipy.stats import exponweib
-    data_exponweib = exponweib.rvs(a=a, c=b, size=n)
+    from scipy.stats import exponweib as y
+    data = y.rvs(a=a, c=b, size=n)
     #a= scale parameter
     #c= shape parameter
     
-    #Graph
-    graph = sns.displot(data_exponweib,
-                      kde=True,
-                      bins='auto',
-                      color='purple')
-    graph.set(xlabel='Weibull Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = exponweib.stats(a=a, c=b, moments='mvsk')
-    print("Weibull distribution: mean=",mean," and the var=",var)
-    warnings.filterwarnings("default") #to enable warning again
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
+    return statistics(y,x,a,b), graph_generator(data,x), distribution_end()
 
 
 
 ## Cauchy
 def cauchy():
     #Message
-    print("Cauchy distribution")
-    
+    x="Cauchy distribution"
+    print(x)
     
     #Inputs
     n = int(input("Enter your integer sample size: "))
 
     # #Generating RV
-    from scipy.stats import cauchy
-    data_cauchy = cauchy.rvs(size=n)
-
-    #Graph
-    graph = sns.displot(data_cauchy,
-                    bins='auto',
-                    kde=True,
-                    color='purple')
-    graph.set(xlabel='Cauchy Distribution', ylabel='Frequency')
-    
-    #Show the graph
-    plt.show()
+    from scipy.stats import cauchy as y
+    data = y.rvs(size=n)
 
     #Statistics
     #mean, var, skew, kurt = cauchy.stats(moments='mvsk')
     #print("Cauchy distribution: mean=",mean," and the var=",var, skew, kurt)
     #we found out that the distribution can not generate a mean and variation
 
-    return distribution_end()
+    return graph_generator(data,x), distribution_end()
+
 
 
 ## Normal
 def normal():
     #Message
-    print("Normal distribution")
-    
+    x="Normal distribution"
+    print(x)
     
     #Inputs
     a = float(input("Enter beginning interval a: "))
@@ -469,26 +292,51 @@ def normal():
     n = int(input("Enter your integer sample size: "))
     
     #Generating RV
-    from scipy.stats import norm
+    from scipy.stats import norm as y
     # generate random numbers from N(a,b)
-    data_normal = norm.rvs(loc=a, scale=b, size=n)
+    data = y.rvs(loc=a, scale=b, size=n)
 
-    #Graph
-    graph = sns.displot(data_normal,
+    return statistics(y,x), graph_generator(data,x), distribution_end()
+
+
+##############################################################################
+
+# Generating Stats and Graphs:
+
+#Statistics
+# The y.stats() requires different parameters based on the distribution y
+def statistics(y,x,a=None,b=None,c=None,n=None,p=None):
+    if a == None and b == None and c == None and n == None and p != None:
+        mean, var, skew, kurt = y.stats(p, moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    elif a != None and b != None and c == None and n == None and p == None:
+        mean, var, skew, kurt = y.stats(a, b, moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    elif a != None and b == None and c != None and n == None and p == None:
+        mean, var, skew, kurt = y.stats(a, c, moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    elif a == None and b == None and c == None and n != None and p != None:
+        mean, var, skew, kurt = y.stats(n, p, moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    elif a != None and b == None and c == None and n == None and p == None:
+        mean, var, skew, kurt = y.stats(a, moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    elif a == None and b == None and c != None and n == None and p == None:
+        mean, var, skew, kurt = y.stats(c, moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    else:
+        mean, var, skew, kurt = y.stats(moments='mvsk')
+        print(x,": mean=",mean," and the var=",var)
+    
+
+#Graph
+def graph_generator(data,x):
+    graph = sns.displot(data,
                     bins='auto',
                     kde=True,
                     color='purple')
-    graph.set(xlabel='Normal Distribution', ylabel='Frequency')
-
-    #Statistics
-    mean, var, skew, kurt = norm.stats(moments='mvsk')
-    print("Normal distribution: mean=",mean," and the var=",var)
-
-    #Show the graph
-    plt.show()
-
-    return distribution_end()
-
+    graph.set(xlabel=x, ylabel='Frequency')
+    return plt.show()
 
 
 ##############################################################################
@@ -561,6 +409,7 @@ def distribution_call(distribution_number):
         return normal()
     else:
         return distribution_choice()
+
 
 def distribution_end():
     # Asking to continue or not
