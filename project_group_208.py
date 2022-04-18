@@ -4,21 +4,6 @@ Created on Thu Mar 10 10:04:18 2022
 
 @author: Group 208 - Hugo Dupouy (GT903738077)
 """
-##############################################################################
-
-# Librairies to import
-
-#import matplotlib.pyplot as plt
-import matplotlib.pyplot as plt
-# import scipy
-import scipy as scipy
-# import seaborn
-import seaborn as sns
-# settings for seaborn plotting style
-sns.set(color_codes=True)
-# settings for seaborn plot sizes
-sns.set(rc={'figure.figsize':(5,5)})
-
 
 ##############################################################################
 
@@ -344,6 +329,19 @@ def graph_generator(data,x):
 # Welcome message to start the program
 def welcome():
     print("Welcome to the Random Variate Distribution Generator\n")
+    # Librairies to import
+
+    #import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
+    # import scipy
+    import scipy as scipy
+    # import seaborn
+    import seaborn as sns
+    # settings for seaborn plotting style
+    sns.set(color_codes=True)
+    # settings for seaborn plot sizes
+    sns.set(rc={'figure.figsize':(5,5)})
+
     return distribution_choice()
 
 # Asking the user to choose the distribution
