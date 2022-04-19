@@ -293,29 +293,38 @@ def normal():
 def statistics(y,x,a=None,b=None,c=None,n=None,p=None):
     if a == None and b == None and c == None and n == None and p != None:
         mean, var, skew, kurt = y.stats(p, moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     elif a != None and b != None and c == None and n == None and p == None:
         mean, var, skew, kurt = y.stats(a, b, moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     elif a != None and b == None and c != None and n == None and p == None:
-        mean, var, skew, kurt = y.stats(a, c, moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     elif a == None and b == None and c == None and n != None and p != None:
         mean, var, skew, kurt = y.stats(n, p, moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     elif a != None and b == None and c == None and n == None and p == None:
         mean, var, skew, kurt = y.stats(a, moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     elif a == None and b == None and c != None and n == None and p == None:
         mean, var, skew, kurt = y.stats(c, moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     else:
         mean, var, skew, kurt = y.stats(moments='mvsk')
-        print(x,": mean=",mean," and the var=",var)
+        print(x,"/n mean=",mean,"/n the var=",var,"/n the skewness=",skew,"/n and/or kurtosis:",kurt)
     
 
 #Graph
 def graph_generator(data,x):
+    # import seaborn
+    import seaborn as sns
+    # settings for seaborn plotting style
+    sns.set(color_codes=True)
+    # settings for seaborn plot sizes
+    sns.set(rc={'figure.figsize':(5,5)})
+    #import matplotlib.pyplot as plt
+    import matplotlib.pyplot as plt
+
+    # graph
     graph = sns.displot(data,
                     bins='auto',
                     kde=True,
@@ -326,27 +335,16 @@ def graph_generator(data,x):
 
 ##############################################################################
 
+# Technical part
+
 # Welcome message to start the program
 def welcome():
     print("Welcome to the Random Variate Distribution Generator\n")
-    # Librairies to import
-
-    #import matplotlib.pyplot as plt
-    import matplotlib.pyplot as plt
-    # import scipy
-    import scipy as scipy
-    # import seaborn
-    import seaborn as sns
-    # settings for seaborn plotting style
-    sns.set(color_codes=True)
-    # settings for seaborn plot sizes
-    sns.set(rc={'figure.figsize':(5,5)})
-
     return distribution_choice()
 
 # Asking the user to choose the distribution
 def distribution_choice():
-    print("Here are the availablee Random Variable Distributions:\n",
+    print("Here are the availablee Distributions to generate RV:\n",
             "1  - Bernoulli\n",
             "2  - Binomial\n",
             "3  - Geometric\n",
@@ -417,7 +415,6 @@ def distribution_end():
     # Asnwer choice
     if answer == 1: return distribution_choice()
     elif answer == 0: return print("Thank you for trying our Library of distributions. Bye-bye!")
-
 
 ##############################################################################
 
